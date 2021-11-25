@@ -1,4 +1,4 @@
-FROM golang:alpine
+FROM go:1.16
 
 # 为我们的镜像设置必要的环境变量
 ENV GO111MODULE=on \

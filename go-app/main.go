@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"net"
 	"net/http"
 	"os"
 )
@@ -12,7 +13,12 @@ func main() {
 	log.Println("start main")
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprint(w, "hello, myrat!!")
+		log.Println("Receive")
+		addrs, err := net.InterfaceAddrs()
+		if err != nil {
+			fmt.Fprint(w, "error ip")
+		}
+		fmt.Fprint(w, addrs)
 	})
 
 	port := os.Getenv("PORT")
