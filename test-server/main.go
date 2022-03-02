@@ -23,6 +23,8 @@ func main() {
 		res := fib(n)
 		c.String(http.StatusOK, "Fibonacci is %s", strconv.Itoa(res))
 	})
+
+	r.Run()
 }
 
 func fib(n int) int {
